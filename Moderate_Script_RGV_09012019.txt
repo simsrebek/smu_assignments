@@ -1,0 +1,100 @@
+'VBA OF WALL STREET - Moderate Script - Adjustment to include all worksheets
+'Rebekah Vinson
+'September 1,2019
+'Note: You will receive an error - issue with worksheet 2014 - could use some help to debug it - thank you!
+
+
+Sub Multiple_Year_Stock_Data():
+ 
+ For Each ws In Worksheets
+
+'Set initial variables
+Dim Ticker_Symbol As String
+Dim Volume_Total As Double
+Dim First_Day_Open As Double
+Dim Last_Day_Close As Double
+Dim Yearly_Change As Double
+Dim Percent_Change As Double
+Dim Summary_Table_Row As Integer
+    
+   'Assigning Headers
+    ws.Cells(1, 9).Value = "Ticker_Symbol"
+    ws.Cells(1, 10).Value = "Yearly_Change"
+    ws.Cells(1, 11).Value = "Percent_Change"
+    ws.Cells(1, 12).Value = "Volume_Total"
+    
+
+    'Set an initial variable for holding the total volume of each ticker symbol
+    Volume_Total = 0
+
+   'Keep track of the location for each ticker symbol in the summary table
+    Summary_Table_Row = 2
+     
+    
+        'Loop through all stock data
+         For i = 2 To ws.Cells(Rows.Count, "A").End(xlUp).Row + 1
+             If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
+
+                  'Set the ticker symbol and Volume_Total
+                Ticker_Symbol = ws.Cells(i, 1).Value
+                 Volume_Total = Volume_Total + ws.Cells(i, 7).Value
+
+              '-------De dificultad moderada---reto---No es Bueno-------------
+               First_Day_Open = ws.Cells(i, 3).Value
+                 Last_Day_Close = ws.Cells(i, 6).Value
+               Yearly_Change = Last_Day_Close - First_Day_Open
+                Percent_Change = Yearly_Change / First_Day_Open
+        
+
+              'Print into Summary Table
+                ws.Range("I" & Summary_Table_Row).Value = Ticker_Symbol
+                 ws.Range("J" & Summary_Table_Row).Value = Yearly_Change
+                  ws.Range("K" & Summary_Table_Row).Value = Percent_Change
+                   ws.Range("L" & Summary_Table_Row).Value = Volume_Total
+
+              'Add one to the summary table row
+               Summary_Table_Row = Summary_Table_Row + 1
+      
+              'Reset the Volume Total
+               Volume_Total = 0
+
+            'If the cell immediately following a row is the same symbol...
+            Else
+            
+ 
+           'Add to the volume total
+           Volume_Total = Volume_Total + ws.Cells(i, 7).Value
+  
+         End If
+  
+      Next i
+      
+'Formattinh percent
+ws.Columns("K").NumberFormat = "0.00%"
+
+'Adding conditional formatting to highlight change in yearly percent
+Dim YearC As Range
+Dim gr As Long
+Dim cr As Long
+Dim color_cell As Range
+    
+    Set YearC = ws.Range("J2", ws.Range("J2").End(xlDown))
+    cr = YearC.Cells.Count
+    
+    For gr = 1 To cr
+    Set color_cell = YearC(gr)
+    Select Case color_cell
+        Case Is >= 0
+            With color_cell
+                .Interior.Color = vbGreen
+            End With
+        Case Is < 0
+            With color_cell
+                .Interior.Color = vbRed
+            End With
+       End Select
+    Next gr
+
+   Next ws
+
+End Sub

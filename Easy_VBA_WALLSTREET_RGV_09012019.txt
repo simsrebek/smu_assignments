@@ -1,0 +1,67 @@
+'SMU Data Science Bootcamp -Easy Version - Adjustments made to include all worksheets
+'Rebekah Vinson
+'September 1,2019
+
+Sub Multiple_Year_Stock_Data():
+ 
+ For Each ws In Worksheets
+
+ ' Set initial variables
+    Dim Ticker_Symbol As String
+    Dim Volume_Total As Double
+    Dim Summary_Table_Row As Integer
+
+
+'Assigning Headers
+    ws.Cells(1, 9).Value = "Ticker_Symbol"
+    ws.Cells(1, 10).Value = "Volume_Total"
+
+  ' Set an initial variable for holding the total volume of each ticker symbol
+     Volume_Total = 0
+
+  ' Keep track of the location for each ticker symbol in the summary table
+     Summary_Table_Row = 2
+     
+    
+   ' Loop through all stock data
+    For i = 2 To ws.Cells(Rows.Count, "A").End(xlUp).Row + 1
+
+   ' Check if we are still within the same ticker symbol, if it is not...
+       If ws.Cells(i + 1, 1).Value <> ws.Cells(i, 1).Value Then
+
+    ' Set the ticker symbol and Volume_Total
+      Ticker_Symbol = ws.Cells(i, 1).Value
+         Volume_Total = Volume_Total + ws.Cells(i, 7).Value
+
+   
+      
+
+   ' Print into Summary Table
+       ws.Range("I" & Summary_Table_Row).Value = Ticker_Symbol
+             ws.Range("J" & Summary_Table_Row).Value = Volume_Total
+
+    ' Add one to the summary table row
+      Summary_Table_Row = Summary_Table_Row + 1
+      
+    ' Reset the Volume Total
+        Volume_Total = 0
+
+    ' If the cell immediately following a row is the same symbol...
+       Else
+
+      ' Add to the volume total
+      Volume_Total = Volume_Total + ws.Cells(i, 7).Value
+  
+      End If
+
+     Next i
+
+  Next ws
+
+End Sub
+
+
+
+
+
+
