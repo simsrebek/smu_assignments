@@ -1,7 +1,7 @@
 'VBA OF WALL STREET - Moderate Script - Adjustment to include all worksheets
 'Rebekah Vinson
 'September 1,2019
-'Note: You will receive an error - issue with worksheet 2014 - could use some help to debug it - thank you!
+'Note: In order for script to work, ticker symbol = PLNT and First_Day_Open = 0 data must be deleted/saved. The script will run without error on new data set
 
 
 Sub Multiple_Year_Stock_Data():
