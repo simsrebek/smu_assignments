@@ -1,0 +1,8 @@
+--using employees table to list "Hercules" first name and last names begin with "B." 
+--used a SQL wild card character '%' to substitute the remaining characters in the last name
+
+SELECT first_name, last_name
+FROM   employees
+WHERE  first_name = 'Hercules'
+AND    last_name like 'B%'
+ORDER BY last_name;

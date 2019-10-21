@@ -1,0 +1,18 @@
+--employee information by joining tables: employees, dept_em and departments
+-- use IN operator for multiple WHERE clause for employees in Sales or Development department
+-- the 'ask' states for Sales AND Development - However I find the instructions to be ambiguous. It is my opinion the IN operator should be used and is most effecient.
+
+
+SELECT e.emp_no AS employee_number, 
+       e.last_name, 
+       e.first_name, 
+       d.dept_name 
+FROM   employees e 
+       JOIN dept_emp de 
+         ON e.emp_no = de.emp_no 
+       JOIN departments d 
+         ON de.dept_no = d.dept_no 
+WHERE  d.dept_name in ('Sales','Development') 
+ORDER  BY e.last_name, 
+          e.first_name; 
+ 

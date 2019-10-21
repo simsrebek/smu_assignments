@@ -1,0 +1,8 @@
+--using PostgreSQL EXTRACT() function to list employees who were hired in 1986.
+--http://www.postgresqltutorial.com/postgresql-extract/
+
+
+SELECT emp_no as employee_number
+FROM   employees 
+WHERE  Extract(year FROM hire_date) = '1986'; 
+

@@ -1,0 +1,20 @@
+--Manager information by joining employee, dept_emp and departments
+
+
+
+
+SELECT dm.dept_no, 
+       d.dept_name, 
+       e.emp_no AS manager_emp_number, 
+       e.last_name, 
+       e.first_name, 
+       dm.from_date, 
+       dm.to_date 
+FROM   employees e 
+       JOIN dept_emp dm 
+         ON e.emp_no = dm.emp_no 
+       JOIN departments d 
+         ON dm.dept_no = d.dept_no 
+ORDER  BY dm.dept_no, 
+          e.last_name, 
+          e.first_name;

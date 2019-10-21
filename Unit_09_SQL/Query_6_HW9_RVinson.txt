@@ -1,0 +1,20 @@
+--employee information by joining tables: employees, dept_em and departments
+-- use where clause to filter for employees in Sales department
+
+
+
+SELECT e.emp_no AS employee_number, 
+       e.last_name, 
+       e.first_name, 
+       d.dept_name 
+FROM   employees e 
+       JOIN dept_emp de 
+         ON e.emp_no = de.emp_no 
+       JOIN departments d 
+         ON de.dept_no = d.dept_no 
+WHERE  d.dept_name = 'Sales' 
+ORDER  BY e.last_name, 
+          e.first_name; 
+
+
+
