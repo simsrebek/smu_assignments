@@ -5,4 +5,4 @@ SELECT last_name,
        Count(last_name) AS last_name_frequency 
 FROM   employees 
 GROUP  BY last_name 
-ORDER  BY last_name_count DESC;
+ORDER  BY last_name_frequency DESC;
