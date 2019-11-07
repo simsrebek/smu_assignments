@@ -46,20 +46,36 @@
       </div>
     </nav>
 
-    <!-- Start of container -->
     <div class="container">
-      <article class="description-content row">
-        <div class="col-xs-12">
-          <h1 class="description-header">Data</h1>
-          <hr class="description-hr"/>
-          <p class="description-text">
-            THIS IS PLACEHOLDER TEXT PLEASE CHANGE THIS
-          </p>
-          <div class="table-responsive">
-            <!-- Insert Table HTML here-->
-          </div>
+      <section class="row">
+        <div class="col-md-8">
+          <article class="description-content">
+            <h1 class="description-header">Summary: Latitude vs. X</h1>
+            <hr class="description-hr"/>
+            <img src="assets/images/Fig1.png" alt="" id="description-image"/>
+            <p>The purpose of the project was to analyze the weather closer to the equator. Using Jupyter Notebook with multiple dependecies
+               such as openweathermapy,citipy and the OpenWeatherMap API, I generated a cities list which contained a count of over 600 random cities /latitude and longitude.
+               Data was formatted inorder to create the images for the analysis. Visualization of the of the analysis was best interpreted by scatterplots to 
+               show the relationship between latitude -temperature,humidity,cloudiness and wind. 
+               
+            </p>
+          </article>
         </div>
-      </article>
+        <div class="col-md-4">
+          <section id="area">
+            <div class="content">
+              <h2 class="header">Visualizations</h2>
+              <hr />
+              <div id="images">
+                <a href="temp.html"><img src="../assets/images/lat_and_max_temp.png" alt="Latitude vs. Max Temperature" class="photo"></a>
+                <a href="humidity.html"><img src="../assets/images/lat_and_humidity.png" alt="Latitude vs. Humidity" class="photo"></a>
+                <a href="cloudiness.html"><img src="../assets/images/lat_and_cloudiness.png" alt="Latitude vs. Cloudiness" class="photo"></a>
+                <a href="wind.html"><img src="../assets/images/lat_and_windspeed.png" alt="Latitude vs. Wind Speed" class="photo"></a>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
     </div>
   </body>
 
