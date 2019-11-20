@@ -1,0 +1,93 @@
+.brand_color {
+	color: white !important;
+	font-size: 1.8em;
+}
+nav a {
+    font-size: 1.2em;
+}
+
+.drop_down_color{
+	color: black;
+    font-size: 0.8em;
+}
+
+#home {
+	background: grey;
+}
+
+body {
+	padding: 10px;
+	margin: 10px;
+	font-family: 'Titillium Web', sans-serif;	
+}
+
+#image {
+	width: 60%;
+	height: 60%;
+	margin: 10px;
+	padding: 5px;
+  }
+.img-border {
+	margin: 2px;
+}
+
+h2 {
+	padding: 10px;
+	margin: 10px;
+}
+
+h3 {
+	text-align: center;
+}
+
+p {
+	padding: 10px;
+	margin: 5px;
+}
+.active-image {
+	border: 1px solid black;
+    padding: 0;
+}
+
+.column-border {
+	border-radius: 10px;
+}
+
+footer {
+	text-align: center;
+}
+.fa {
+	color: black;
+  	padding: 20px;
+  	font-size: 30px;
+  	width: 30px;
+  	text-decoration: none;
+  	margin: 5px 2px;
+  	border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.25;
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.table-scroll {
+	height: 400px !important;
+    overflow-y: scroll;
+}
+
+td, th {
+    border: 1px solid white;
+    text-align: center;
+    padding: 5px;
+}
+
+tr:nth-child(even) {
+    background-color:lightgray;
+}
+
+tr:nth-child(odd){
+	background: white;
+}
